@@ -139,6 +139,7 @@ class Module:
         pygame.draw.line(self.screen, (0, 0, 0), (x, y), (x + width + 30, y))
         for i in range(10):
             self.draw_text(str(max_val / 10 * (i + 1)), (x + width / 10 * (i + 1), y + 10), 0, self.font_numbers)
+            pygame.draw.line(self.screen, (0, 0, 0), (x + width / 10 * (i + 1), - 5), (x + width / 10 * (i + 1), + 5), 3)
 
 
     def display_y(self, x, y, height, values):
@@ -146,7 +147,8 @@ class Module:
         values_y = self.get_values_y(values)
         for i in range(10):
             w = self.get_width_text(str("%.4f" % values_y[i][1]), 0, self.font_numbers)
-            self.draw_text(str("%.4f" % values_y[i][1]), (x - w / 2 - 5, y - height / 10 * (i + 1)), 0, self.font_numbers)
+            self.draw_text(str("%.4f" % values_y[i][1]), (x - w / 2 - 8, y - height / 10 * (i + 1)), 0, self.font_numbers)
+            pygame.draw.line(self.screen, (0, 0, 0), (x + 5, y - height / 10 * (i + 1)), (x - 5, y - height / 10 * (i + 1)), 3)
     
     def calc1(self):
         km = self.km_n
